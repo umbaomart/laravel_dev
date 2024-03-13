@@ -21,3 +21,17 @@ Route::get('/', function () {
 Route::get('/hello', function() {
     return 'Hello World';
 });
+
+Route::get('/hallo', function() {
+    return redirect('/hello');
+});
+
+Route::get('/greet/{name}', function($name) {
+    return "Hello $name!";
+});
+
+
+// GET - Get request - Read data
+// POST - Post request - Store data
+// PUT - Put request - Update or Modify data
+// DELETE - Delete request - Delete data
