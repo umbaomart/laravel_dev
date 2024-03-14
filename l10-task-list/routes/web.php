@@ -14,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    return 'Main Page';
+    return view('index', [
+        'name' => 'Laravel'
+    ]);
 });
 
 Route::get('/xxx', function() {
