@@ -14,10 +14,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
-    return 'Main Page';
+    return view('index', [
+        'name' => 'Laravel'
+    ]);
 });
 
-Route::get('/hello', function() {
+Route::get('/xxx', function() {
     return 'Hello World';
+})->name('hello');
+
+Route::get('/hallo', function() {
+    return redirect()->route('hello');
 });
+
+Route::get('/greet/{name}', function($name) {
+    return "Hello $name!";
+});
+
+Route::fallback(function() {
+    return 'Still got somewhere!';
+});
+
+// GET - Get request - Read data
+// POST - Post request - Store data
+// PUT - Put request - Update or Modify data
+// DELETE - Delete request - Delete data
