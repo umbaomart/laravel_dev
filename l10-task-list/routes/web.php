@@ -18,18 +18,21 @@ Route::get('/', function () {
     return 'Main Page';
 });
 
-Route::get('/hello', function() {
+Route::get('/xxx', function() {
     return 'Hello World';
-});
+})->name('hello');
 
 Route::get('/hallo', function() {
-    return redirect('/hello');
+    return redirect()->route('hello');
 });
 
 Route::get('/greet/{name}', function($name) {
     return "Hello $name!";
 });
 
+Route::fallback(function() {
+    return 'Still got somewhere!';
+});
 
 // GET - Get request - Read data
 // POST - Post request - Store data
