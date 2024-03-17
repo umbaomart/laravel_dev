@@ -66,23 +66,27 @@ $tasks = [
   ),
 ];
 
-Route::get('/', function () {
+Route::get('/', function () use($tasks) {
     return view('index', [
-        'name' => 'Laravel'
+        'tasks' => $tasks,
     ]);
-});
+}) -> name('task.index');
 
-Route::get('/xxx', function() {
-    return 'Hello World';
-})->name('hello');
+Route::get('/{id}', function($id) use($tasks) {
+    return 'One single Task';
+}) -> name('tasks.show');
 
-Route::get('/hallo', function() {
-    return redirect()->route('hello');
-});
+// Route::get('/xxx', function() {
+//     return 'Hello World';
+// })->name('hello');
 
-Route::get('/greet/{name}', function($name) {
-    return "Hello $name!";
-});
+// Route::get('/hallo', function() {
+//     return redirect()->route('hello');
+// });
+
+// Route::get('/greet/{name}', function($name) {
+//     return "Hello $name!";
+// });
 
 Route::fallback(function() {
     return 'Still got somewhere!';

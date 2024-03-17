@@ -1,9 +1,12 @@
-<div class="">Hello I'm a blade template</div>
+<h1>The list of Tasks</h1>
 
-<!-- Directives -->
-@isset($name)
-    <h2>
-        The name is: {{ $name }}
-    </h2>
-@endisset
-
+<!-- Directive -->
+<div>
+    @forelse ($tasks as $task)
+        <div>
+            <a href="{{route('tasks.show', ['id' => $task->id])}}">{{$task->title}}</a>
+        </div>
+    @empty
+        <div>There are no Tasks!</div>
+    @endforelse
+</div>
