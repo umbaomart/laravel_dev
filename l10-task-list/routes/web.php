@@ -66,33 +66,26 @@ $tasks = [
   ),
 ];
 
-Route::get('/', function () use($tasks) {
+Route::get('/', function () {
+    return redirect()->route('tasks.index');
+});
+
+Route::get('/tasks', function () use($tasks) {
     return view('index', [
         'tasks' => $tasks,
     ]);
-}) -> name('task.index');
+})->name('tasks.index');
 
-Route::get('/{id}', function($id) use($tasks) {
-    return 'One single Task';
-}) -> name('tasks.show');
+Route::get('tasks/{id}', function($id) use($tasks) {
+    $task = collect($tasks)->firstWhere('id', $id);
 
-// Route::get('/xxx', function() {
-//     return 'Hello World';
-// })->name('hello');
+    if (!$task) {
+        abort(Response::HTTP_NOT_FOUND);
+    }
 
-// Route::get('/hallo', function() {
-//     return redirect()->route('hello');
-// });
-
-// Route::get('/greet/{name}', function($name) {
-//     return "Hello $name!";
-// });
+    return view('show', ['task' => $task]);
+})->name('tasks.show');
 
 Route::fallback(function() {
     return 'Still got somewhere!';
 });
-
-// GET - Get request - Read data
-// POST - Post request - Store data
-// PUT - Put request - Update or Modify data
-// DELETE - Delete request - Delete data
