@@ -1,5 +1,8 @@
-<h1>The list of Tasks</h1>
+@extends('layouts.app')
 
+@section('title', 'The list of Tasks')
+
+@section('content')
 <!-- Directive -->
 <div>
     @forelse ($tasks as $task)
@@ -10,3 +13,4 @@
         <div>There are no Tasks!</div>
     @endforelse
 </div>
+@endsection()
