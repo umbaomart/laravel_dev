@@ -11,4 +11,4 @@
 | ```php artisan db:seed``` | command to populate your database with test or sample data |
 | ```php artisan make:factory TaskFactory --model=Task``` | creates a factory file named TaskFactory.php that helps generate fake data for the Task model. This fake data is handy for testing purposes or populating your database with sample information. |
 | ```php artisan migrate:rollback``` | rolls back the last database migration that was performed |
-| ```php artisan migrate:refresh --seed``` | reset your database to a clean state with both the schema and data intact, especially after making changes to migrations or seeds. |
+| ```php artisan migrate:refresh --seed``` | reset your database to a clean state with both the schema and data intact, especially after making changes to migrations or seeds. Note: Run only on development mode as it will wipe all the data and generate a new one. |
