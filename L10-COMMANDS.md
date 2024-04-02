@@ -4,7 +4,7 @@
 ## List of Development Commands
 
 |   ARTISAN COMMANDS    |   DESCRIPTION     |
-|:---------------------:|:------------------|
+|:----------------------|:------------------|
 | ```php artisan serve```     | Generate a localhost server |
 | ```php artisan migrate```   |  used when we want a fresh or new installation of our database |
 | ```php artisan route:list``` | Show all  the list of all the roots currently in your application |
